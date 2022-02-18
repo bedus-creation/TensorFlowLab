@@ -17,6 +17,8 @@ def slide_window(series, slide: int = 1):
 
 def model():
     model = Sequential()
+    # The next line is optional that we are adding more hidden layers in our model.
+    model.add(LSTM(50, activation='relu', return_sequences=True, input_shape=(3, 1)))
     model.add(LSTM(23, activation='relu', input_shape=(3, 1)))
     model.add(Dense(1))
     model.compile(optimizer='adam', loss='mse')
